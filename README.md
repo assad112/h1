@@ -1,6 +1,8 @@
-# Nursery Finder - Android Application
+# Warm Clouds ☁️ - Nursery Finder App
 
 A professional, feature-rich Android application for searching and booking nurseries/daycares in your area. Built with Java and Material Design principles.
+
+**"Where children find comfort and care"**
 
 ## Features
 

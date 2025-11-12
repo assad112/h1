@@ -58,7 +58,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Find the perfect nursery for your child"
+                        android:text="Where children find comfort and care"
                         android:textSize="13sp"
                         android:textColor="@color/white"
                         android:alpha="0.85"
