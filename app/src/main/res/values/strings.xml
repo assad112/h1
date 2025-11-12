@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Nursery Finder</string>
+    
+    <!-- Main Activity -->
+    <string name="search_nurseries">Search Nurseries</string>
+    <string name="filter_nurseries">Filter</string>
+    <string name="all_nurseries">All Nurseries</string>
+    <string name="search_hint">Search by name or location...</string>
+    
+    <!-- Filter Options -->
+    <string name="filter_title">Filter Nurseries</string>
+    <string name="filter_by_price">Price Range</string>
+    <string name="filter_by_age">Age Group</string>
+    <string name="filter_by_rating">Minimum Rating</string>
+    <string name="filter_by_distance">Distance</string>
+    <string name="apply_filters">Apply Filters</string>
+    <string name="clear_filters">Clear Filters</string>
+    
+    <!-- Nursery Details -->
+    <string name="nursery_details">Nursery Details</string>
+    <string name="about">About</string>
+    <string name="facilities">Facilities</string>
+    <string name="reviews">Reviews</string>
+    <string name="rating">Rating</string>
+    <string name="distance">Distance</string>
+    <string name="price_per_month">Price per Month</string>
+    <string name="age_range">Age Range</string>
+    <string name="opening_hours">Opening Hours</string>
+    <string name="contact">Contact</string>
+    <string name="book_now">Book Now</string>
+    <string name="call_now">Call Now</string>
+    <string name="view_location">View Location</string>
+    
+    <!-- Booking -->
+    <string name="book_nursery">Book Nursery</string>
+    <string name="child_name">Child Name</string>
+    <string name="child_age">Child Age</string>
+    <string name="parent_name">Parent Name</string>
+    <string name="parent_phone">Phone Number</string>
+    <string name="parent_email">Email Address</string>
+    <string name="start_date">Start Date</string>
+    <string name="select_date">Select Date</string>
+    <string name="select_package">Select Package</string>
+    <string name="package_full_time">Full Time (8 hours)</string>
+    <string name="package_part_time">Part Time (4 hours)</string>
+    <string name="package_hourly">Hourly</string>
+    <string name="additional_notes">Additional Notes</string>
+    <string name="submit_booking">Submit Booking</string>
+    <string name="booking_success">Booking Submitted Successfully!</string>
+    <string name="booking_failed">Booking Failed. Please try again.</string>
+    
+    <!-- Messages -->
+    <string name="no_nurseries_found">No nurseries found</string>
+    <string name="loading">Loading...</string>
+    <string name="error_occurred">An error occurred</string>
+    
+    <!-- Age Groups -->
+    <string name="age_0_1">0-1 years</string>
+    <string name="age_1_2">1-2 years</string>
+    <string name="age_2_3">2-3 years</string>
+    <string name="age_3_5">3-5 years</string>
+    
+    <!-- Common -->
+    <string name="close">Close</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+</resources>
