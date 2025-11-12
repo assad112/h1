@@ -66,15 +66,32 @@
 
                 </LinearLayout>
 
-                <!-- Icon/Badge -->
+                <!-- Logo/Badge - Replace emoji with logo when you add warm_clouds_logo.png -->
                 <TextView
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
-                    android:text="🏫"
-                    android:textSize="32sp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:text="☁️"
+                    android:textSize="40sp"
                     android:gravity="center"
-                    android:background="@color/primary_dark"
-                    android:elevation="4dp"/>
+                    android:background="@color/white"
+                    android:padding="6dp"
+                    android:elevation="6dp"/>
+                
+                <!-- TO USE YOUR LOGO: 
+                     1. Save your logo image as: warm_clouds_logo.png
+                     2. Copy it to: app/src/main/res/drawable/
+                     3. Replace the TextView above with this ImageView:
+                     
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/warm_clouds_logo"
+                    android:scaleType="centerCrop"
+                    android:background="@color/white"
+                    android:padding="6dp"
+                    android:elevation="6dp"
+                    android:contentDescription="Warm Clouds Logo"/>
+                -->
 
             </LinearLayout>
 
