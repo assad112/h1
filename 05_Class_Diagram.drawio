@@ -1,0 +1,119 @@
+<mxfile host="app.diagrams.net" modified="2024-01-01T00:00:00.000Z" agent="5.0" version="21.0.0" etag="class" type="device">
+  <diagram name="Class Diagram" id="class">
+    <mxGraphModel dx="2000" dy="1400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="📊 Class Diagram - Warm Clouds App" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#1e3a8a;" vertex="1" parent="1">
+          <mxGeometry x="0" y="20" width="1800" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Shows classes, attributes, methods, and relationships" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontColor=#64748b;" vertex="1" parent="1">
+          <mxGeometry x="0" y="50" width="1800" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nursery" value="&lt;&lt;Model&gt;&gt;&lt;br&gt;&lt;b&gt;Nursery&lt;/b&gt;&lt;br&gt;─────────────────&lt;br&gt;- id: int&lt;br&gt;- name: String&lt;br&gt;- description: String&lt;br&gt;- address: String&lt;br&gt;- phone: String&lt;br&gt;- email: String&lt;br&gt;- latitude: double&lt;br&gt;- longitude: double&lt;br&gt;- rating: float&lt;br&gt;- reviewCount: int&lt;br&gt;- pricePerMonth: double&lt;br&gt;- ageRange: String&lt;br&gt;- openingHours: String&lt;br&gt;- distance: double&lt;br&gt;- imageUrl: String&lt;br&gt;- facilities: List&lt;String&gt;&lt;br&gt;- reviews: List&lt;Review&gt;&lt;br&gt;- isVerified: boolean&lt;br&gt;- capacity: int&lt;br&gt;- availableSlots: int&lt;br&gt;─────────────────&lt;br&gt;+ getId(): int&lt;br&gt;+ getName(): String&lt;br&gt;+ getDescription(): String&lt;br&gt;+ addFacility(String): void&lt;br&gt;+ addReview(Review): void&lt;br&gt;+ getFacilities(): List&lt;String&gt;&lt;br&gt;+ getReviews(): List&lt;Review&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3b82f6;strokeColor=#2563eb;strokeWidth=2;shadow=1;fontSize=11;fontStyle=0;fontColor=#ffffff;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="150" width="280" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="review" value="&lt;&lt;Model&gt;&gt;&lt;br&gt;&lt;b&gt;Review&lt;/b&gt;&lt;br&gt;─────────────────&lt;br&gt;- id: int&lt;br&gt;- nurseryId: int&lt;br&gt;- userName: String&lt;br&gt;- rating: float&lt;br&gt;- comment: String&lt;br&gt;- date: String&lt;br&gt;- isVerified: boolean&lt;br&gt;─────────────────&lt;br&gt;+ getId(): int&lt;br&gt;+ getNurseryId(): int&lt;br&gt;+ getUserName(): String&lt;br&gt;+ getRating(): float&lt;br&gt;+ getComment(): String&lt;br&gt;+ getDate(): String&lt;br&gt;+ isVerified(): boolean" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8b5cf6;strokeColor=#7c3aed;strokeWidth=2;shadow=1;fontSize=11;fontStyle=0;fontColor=#ffffff;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="500" y="150" width="280" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="booking" value="&lt;&lt;Model&gt;&gt;&lt;br&gt;&lt;b&gt;Booking&lt;/b&gt;&lt;br&gt;─────────────────&lt;br&gt;- id: int&lt;br&gt;- nurseryId: int&lt;br&gt;- nurseryName: String&lt;br&gt;- childName: String&lt;br&gt;- childAge: int&lt;br&gt;- parentName: String&lt;br&gt;- parentPhone: String&lt;br&gt;- parentEmail: String&lt;br&gt;- startDate: String&lt;br&gt;- packageType: String&lt;br&gt;- additionalNotes: String&lt;br&gt;- bookingDate: String&lt;br&gt;- status: String&lt;br&gt;─────────────────&lt;br&gt;+ getId(): int&lt;br&gt;+ getNurseryId(): int&lt;br&gt;+ getChildName(): String&lt;br&gt;+ getParentName(): String&lt;br&gt;+ getStatus(): String&lt;br&gt;+ setStatus(String): void" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f59e0b;strokeColor=#d97706;strokeWidth=2;shadow=1;fontSize=11;fontStyle=0;fontColor=#ffffff;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="900" y="150" width="280" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="mainactivity" value="&lt;&lt;Activity&gt;&gt;&lt;br&gt;&lt;b&gt;MainActivity&lt;/b&gt;&lt;br&gt;─────────────────&lt;br&gt;- recyclerView: RecyclerView&lt;br&gt;- adapter: NurseryAdapter&lt;br&gt;- allNurseries: List&lt;Nursery&gt;&lt;br&gt;- searchEditText: EditText&lt;br&gt;- btnFilter: ImageButton&lt;br&gt;- btnSort: ImageButton&lt;br&gt;- currentFilter: FilterCriteria&lt;br&gt;─────────────────&lt;br&gt;+ onCreate(Bundle): void&lt;br&gt;- initViews(): void&lt;br&gt;- setupRecyclerView(): void&lt;br&gt;- setupSearch(): void&lt;br&gt;- setupButtons(): void&lt;br&gt;- loadNurseries(): void&lt;br&gt;- applyFilters(): void&lt;br&gt;- showFilterDialog(): void&lt;br&gt;- showSortDialog(): void" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#10b981;strokeColor=#059669;strokeWidth=2;shadow=1;fontSize=11;fontStyle=0;fontColor=#ffffff;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="650" width="280" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="detailsactivity" value="&lt;&lt;Activity&gt;&gt;&lt;br&gt;&lt;b&gt;NurseryDetailsActivity&lt;/b&gt;&lt;br&gt;─────────────────&lt;br&gt;- nursery: Nursery&lt;br&gt;- reviewAdapter: ReviewAdapter&lt;br&gt;- recyclerView: RecyclerView&lt;br&gt;─────────────────&lt;br&gt;+ onCreate(Bundle): void&lt;br&gt;- initViews(): void&lt;br&gt;- displayNurseryDetails(): void&lt;br&gt;- setupReviewList(): void&lt;br&gt;- onCallClick(): void&lt;br&gt;- onMapClick(): void&lt;br&gt;- onBookClick(): void" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#10b981;strokeColor=#059669;strokeWidth=2;shadow=1;fontSize=11;fontStyle=0;fontColor=#ffffff;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="500" y="650" width="280" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="bookingactivity" value="&lt;&lt;Activity&gt;&gt;&lt;br&gt;&lt;b&gt;BookingActivity&lt;/b&gt;&lt;br&gt;─────────────────&lt;br&gt;- nursery: Nursery&lt;br&gt;- packageType: String&lt;br&gt;- startDate: String&lt;br&gt;─────────────────&lt;br&gt;+ onCreate(Bundle): void&lt;br&gt;- initViews(): void&lt;br&gt;- setupDatePicker(): void&lt;br&gt;- onSubmitBooking(): void&lt;br&gt;- validateForm(): boolean" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#10b981;strokeColor=#059669;strokeWidth=2;shadow=1;fontSize=11;fontStyle=0;fontColor=#ffffff;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="900" y="650" width="280" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="nurseryadapter" value="&lt;&lt;Adapter&gt;&gt;&lt;br&gt;&lt;b&gt;NurseryAdapter&lt;/b&gt;&lt;br&gt;─────────────────&lt;br&gt;- nurseries: List&lt;Nursery&gt;&lt;br&gt;- listener: OnItemClickListener&lt;br&gt;─────────────────&lt;br&gt;+ onCreateViewHolder(): ViewHolder&lt;br&gt;+ onBindViewHolder(): void&lt;br&gt;+ getItemCount(): int&lt;br&gt;+ setOnItemClickListener(): void" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#06b6d4;strokeColor=#0891b2;strokeWidth=2;shadow=1;fontSize=11;fontStyle=0;fontColor=#ffffff;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="150" width="280" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="reviewadapter" value="&lt;&lt;Adapter&gt;&gt;&lt;br&gt;&lt;b&gt;ReviewAdapter&lt;/b&gt;&lt;br&gt;─────────────────&lt;br&gt;- reviews: List&lt;Review&gt;&lt;br&gt;─────────────────&lt;br&gt;+ onCreateViewHolder(): ViewHolder&lt;br&gt;+ onBindViewHolder(): void&lt;br&gt;+ getItemCount(): int" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#06b6d4;strokeColor=#0891b2;strokeWidth=2;shadow=1;fontSize=11;fontStyle=0;fontColor=#ffffff;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="400" width="280" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="filterhelper" value="&lt;&lt;Utility&gt;&gt;&lt;br&gt;&lt;b&gt;FilterHelper&lt;/b&gt;&lt;br&gt;─────────────────&lt;br&gt;─────────────────&lt;br&gt;+ filter(List&lt;Nursery&gt;, FilterCriteria): List&lt;Nursery&gt;&lt;br&gt;+ sort(List&lt;Nursery&gt;, String): List&lt;Nursery&gt;&lt;br&gt;+ calculateDistance(): double" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ef4444;strokeColor=#dc2626;strokeWidth=2;shadow=1;fontSize=11;fontStyle=0;fontColor=#ffffff;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="650" width="280" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="bookingmanager" value="&lt;&lt;Utility&gt;&gt;&lt;br&gt;&lt;b&gt;BookingManager&lt;/b&gt;&lt;br&gt;─────────────────&lt;br&gt;- bookings: List&lt;Booking&gt;&lt;br&gt;─────────────────&lt;br&gt;+ createBooking(Booking): boolean&lt;br&gt;+ validateBooking(Booking): boolean&lt;br&gt;+ getAllBookings(): List&lt;Booking&gt;&lt;br&gt;+ getBookingById(int): Booking" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ef4444;strokeColor=#dc2626;strokeWidth=2;shadow=1;fontSize=11;fontStyle=0;fontColor=#ffffff;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="850" width="280" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="dataprovider" value="&lt;&lt;Utility&gt;&gt;&lt;br&gt;&lt;b&gt;NurseryDataProvider&lt;/b&gt;&lt;br&gt;─────────────────&lt;br&gt;─────────────────&lt;br&gt;+ getSampleNurseries(): List&lt;Nursery&gt;&lt;br&gt;+ getNurseryById(int): Nursery" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ef4444;strokeColor=#dc2626;strokeWidth=2;shadow=1;fontSize=11;fontStyle=0;fontColor=#ffffff;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="1050" width="280" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow1" value="uses" style="endArrow=open;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#3b82f6;fontSize=11;fontColor=#1e40af;" edge="1" parent="1" source="nursery" target="mainactivity">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow2" value="uses" style="endArrow=open;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#8b5cf6;fontSize=11;fontColor=#7c3aed;" edge="1" parent="1" source="review" target="detailsactivity">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow3" value="uses" style="endArrow=open;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#f59e0b;fontSize=11;fontColor=#78350f;" edge="1" parent="1" source="booking" target="bookingactivity">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow4" value="contains" style="endArrow=diamond;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#3b82f6;fontSize=11;fontColor=#1e40af;" edge="1" parent="1" source="nursery" target="review">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow5" value="uses" style="endArrow=open;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#06b6d4;fontSize=11;fontColor=#0891b2;" edge="1" parent="1" source="nurseryadapter" target="mainactivity">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1440" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow6" value="uses" style="endArrow=open;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#06b6d4;fontSize=11;fontColor=#0891b2;" edge="1" parent="1" source="reviewadapter" target="detailsactivity">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1440" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow7" value="uses" style="endArrow=open;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#ef4444;fontSize=11;fontColor=#991b1b;" edge="1" parent="1" source="filterhelper" target="mainactivity">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1440" y="730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow8" value="uses" style="endArrow=open;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#ef4444;fontSize=11;fontColor=#991b1b;" edge="1" parent="1" source="bookingmanager" target="bookingactivity">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1440" y="730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow9" value="uses" style="endArrow=open;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#ef4444;fontSize=11;fontColor=#991b1b;" edge="1" parent="1" source="dataprovider" target="mainactivity">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow10" value="uses" style="endArrow=open;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#3b82f6;fontSize=11;fontColor=#1e40af;" edge="1" parent="1" source="dataprovider" target="nursery">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow11" value="uses" style="endArrow=open;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#06b6d4;fontSize=11;fontColor=#0891b2;" edge="1" parent="1" source="nurseryadapter" target="nursery">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1440" y="300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow12" value="uses" style="endArrow=open;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#06b6d4;fontSize=11;fontColor=#0891b2;" edge="1" parent="1" source="reviewadapter" target="review">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1440" y="300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow13" value="uses" style="endArrow=open;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#10b981;fontSize=11;fontColor=#059669;" edge="1" parent="1" source="detailsactivity" target="nursery">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+
+
+

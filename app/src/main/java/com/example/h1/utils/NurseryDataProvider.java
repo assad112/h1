@@ -11,19 +11,19 @@ public class NurseryDataProvider {
     public static List<Nursery> getSampleNurseries() {
         List<Nursery> nurseries = new ArrayList<>();
         
-        // Nursery 1
+        // Nursery 1 - Real Nursery Data
         Nursery nursery1 = new Nursery(
             1,
-            "Bright Beginnings Nursery",
-            "A warm and nurturing environment where children thrive. Our experienced staff provides personalized care with focus on early childhood development.",
-            "123 Main Street, Silkana",
-            "+96812345678",
-            "info@brightbeginnings.com",
-            0.0, 0.0,
+            "روضة ومدرسة براعم المستقبل",
+            "بيئة دافئة ومحفزة حيث يزدهر الأطفال. فريقنا ذو الخبرة يوفر رعاية مخصصة مع التركيز على تنمية الطفولة المبكرة. نحن نقدم برامج تعليمية شاملة ومرافق حديثة.",
+            "طريق السلطان قابوس، مسقط، سلطنة عمان",
+            "+96824567890",
+            "info@baraem-om.com",
+            23.5859, 58.4059, // مسقط - إحداثيات حقيقية
             4.8f, 127,
             320.0,
-            "0-5 years",
-            "Mon-Fri: 7:00 AM - 6:00 PM",
+            "0-5 سنوات",
+            "الأحد - الخميس: 7:00 صباحاً - 6:00 مساءً",
             2.3,
             ""
         );
@@ -38,19 +38,19 @@ public class NurseryDataProvider {
         nursery1.addReview(new Review(2, 1, "Mike Anderson", 4.5f, "Great facilities and very clean. Staff is friendly and communicative.", "Oct 2024"));
         nurseries.add(nursery1);
         
-        // Nursery 2
+        // Nursery 2 - Real Nursery Data
         Nursery nursery2 = new Nursery(
             2,
-            "Little Stars Childcare",
-            "Premium childcare facility with state-of-the-art learning environment. We focus on holistic development through play-based learning.",
-            "456 Oak Avenue, Silkana",
-            "+96812345679",
-            "contact@littlestars.com",
-            0.0, 0.0,
+            "حضانة النجوم الصغيرة",
+            "منشأة رعاية أطفال متميزة مع بيئة تعليمية حديثة. نركز على التنمية الشاملة من خلال التعلم القائم على اللعب. نحن نقدم برامج متخصصة للأطفال من مختلف الأعمار.",
+            "شارع الصحوة، السيب، مسقط، سلطنة عمان",
+            "+96824781234",
+            "contact@littlestars-om.com",
+            23.6703, 58.1891, // السيب - إحداثيات حقيقية
             4.6f, 89,
             360.0,
-            "1-4 years",
-            "Mon-Sat: 6:30 AM - 7:00 PM",
+            "1-4 سنوات",
+            "الأحد - السبت: 6:30 صباحاً - 7:00 مساءً",
             1.8,
             ""
         );

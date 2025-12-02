@@ -168,3 +168,9 @@ public String getPriceFormatted() {
 
 **The application is now fully localized for the Omani market! 🇴🇲**
 
+
+
+
+
+
+

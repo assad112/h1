@@ -18,9 +18,9 @@
         android:theme="@style/Theme.H1"
         tools:targetApi="31">
 
-        <!-- Main Activity -->
+        <!-- Welcome Activity (Splash/Home) -->
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.WelcomeActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -28,6 +28,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Main Activity -->
+        <activity
+            android:name=".activities.MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
 
         <!-- Nursery Details Activity -->
         <activity
@@ -42,6 +49,41 @@
             android:exported="false"
             android:screenOrientation="portrait"
             android:parentActivityName=".activities.NurseryDetailsActivity" />
+
+        <!-- User Login & Register Activities -->
+        <activity
+            android:name=".activities.UserLoginActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.UserRegisterActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <!-- Admin Activities -->
+        <activity
+            android:name=".activities.AdminLoginActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.AdminDashboardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".activities.AdminLoginActivity" />
+
+        <activity
+            android:name=".activities.AdminManageNurseriesActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".activities.AdminDashboardActivity" />
+
+        <activity
+            android:name=".activities.AdminReviewsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".activities.AdminDashboardActivity" />
 
     </application>
 

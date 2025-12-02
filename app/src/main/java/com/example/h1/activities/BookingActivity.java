@@ -1,6 +1,7 @@
 package com.example.h1.activities;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.h1.R;
 import com.example.h1.models.Booking;
 import com.example.h1.models.Nursery;
-import com.example.h1.utils.BookingManager;
+import com.example.h1.database.DatabaseHelper;
+import com.example.h1.utils.EmailNotificationHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -34,6 +36,7 @@ public class BookingActivity extends AppCompatActivity {
     
     private Calendar selectedDate;
     private String selectedPackageType = "FULL_TIME";
+    private DatabaseHelper databaseHelper;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,7 @@ public class BookingActivity extends AppCompatActivity {
         }
         
         selectedDate = Calendar.getInstance();
+        databaseHelper = new DatabaseHelper(this);
         
         initViews();
         displayNurseryInfo();
@@ -198,25 +202,45 @@ public class BookingActivity extends AppCompatActivity {
             notes
         );
         
-        // Save booking
-        boolean success = BookingManager.getInstance().addBooking(booking);
+        // Save booking to database
+        long bookingId = databaseHelper.addBooking(booking);
         
-        if (success) {
+        if (bookingId > 0) {
+            booking.setId((int) bookingId);
+            // Send email notification
+            sendBookingConfirmation(booking);
             showSuccessDialog();
         } else {
-            Toast.makeText(this, R.string.booking_failed, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "فشل الحجز. حاول مرة أخرى.", Toast.LENGTH_SHORT).show();
+        }
+    }
+    
+    private void sendBookingConfirmation(Booking booking) {
+        try {
+            Intent emailIntent = EmailNotificationHelper.createBookingConfirmationEmail(booking);
+            if (emailIntent.resolveActivity(getPackageManager()) != null) {
+                startActivity(Intent.createChooser(emailIntent, "إرسال تأكيد الحجز عبر البريد الإلكتروني"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     
     private void showSuccessDialog() {
         new AlertDialog.Builder(this)
-            .setTitle("Booking Successful!")
-            .setMessage("Your booking request has been submitted successfully. The nursery will contact you shortly to confirm.")
-            .setPositiveButton("OK", (dialog, which) -> {
+            .setTitle("تم الحجز بنجاح!")
+            .setMessage("تم إرسال طلب الحجز بنجاح. سيتم التواصل معك قريباً من قبل الحضانة لتأكيد الحجز. تم إرسال رسالة تأكيد إلى بريدك الإلكتروني.")
+            .setPositiveButton("حسناً", (dialog, which) -> {
                 finish();
             })
             .setCancelable(false)
             .show();
     }
 }
+
+
+
+
+
+
 

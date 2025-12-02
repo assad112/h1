@@ -1,9 +1,12 @@
 package com.example.h1.activities;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -14,6 +17,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,7 +25,10 @@ import com.example.h1.R;
 import com.example.h1.adapters.NurseryAdapter;
 import com.example.h1.models.Nursery;
 import com.example.h1.utils.FilterHelper;
-import com.example.h1.utils.NurseryDataProvider;
+import com.example.h1.database.DatabaseHelper;
+import com.example.h1.database.DataSeeder;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.List;
 
@@ -36,17 +43,39 @@ public class MainActivity extends AppCompatActivity {
     private com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton fabQuickSearch;
     
     private FilterHelper.FilterCriteria currentFilter;
+    private DatabaseHelper databaseHelper;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
+        // تهيئة قاعدة البيانات
+        databaseHelper = new DatabaseHelper(this);
+        // إعادة تعيين قاعدة البيانات (احذف هذا السطر بعد أول تشغيل)
+        DataSeeder.seedDatabase(this, true);
+        
         initViews();
         setupRecyclerView();
         setupSearch();
         setupButtons();
         loadNurseries();
+    }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.menu_admin) {
+            Intent intent = new Intent(this, com.example.h1.activities.AdminLoginActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
     
     private void initViews() {
@@ -61,7 +90,9 @@ public class MainActivity extends AppCompatActivity {
     }
     
     private void setupRecyclerView() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // Grid layout with 2 columns
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setHasFixedSize(true);
     }
     
@@ -97,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
     }
     
     private void loadNurseries() {
-        allNurseries = NurseryDataProvider.getSampleNurseries();
+        allNurseries = databaseHelper.getAllNurseries();
         adapter = new NurseryAdapter(this, allNurseries);
         recyclerView.setAdapter(adapter);
         updateResultCount(allNurseries.size());
